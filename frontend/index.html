@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Resizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Image Resizer</h1>
+            <p>Upload an image and resize it to your desired dimensions</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p>Drag & Drop your image here</p>
+                        <span>or</span>
+                        <button class="browse-btn">Browse Files</button>
+                    </div>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                </div>
+
+                <div class="preview-section" id="previewSection" style="display: none;">
+                    <div class="preview-container">
+                        <img id="previewImage" src="" alt="Preview">
+                        <div class="image-info">
+                            <p>Original Size: <span id="originalSize">-</span></p>
+                            <p>Dimensions: <span id="originalDimensions">-</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls-section">
+                <div class="dimension-controls">
+                    <div class="control-group">
+                        <label for="width">Width (px)</label>
+                        <input type="number" id="width" min="1" placeholder="Width">
+                    </div>
+                    <div class="control-group">
+                        <label for="height">Height (px)</label>
+                        <input type="number" id="height" min="1" placeholder="Height">
+                    </div>
+                    <div class="control-group">
+                        <label for="maintainAspect">Maintain Aspect Ratio</label>
+                        <input type="checkbox" id="maintainAspect" checked>
+                    </div>
+                </div>
+
+                <div class="quality-controls">
+                    <div class="control-group">
+                        <label for="quality">Quality</label>
+                        <input type="range" id="quality" min="1" max="100" value="80">
+                        <span id="qualityValue">80%</span>
+                    </div>
+                </div>
+
+                <div class="format-controls">
+                    <label>Output Format</label>
+                    <div class="format-options">
+                        <input type="radio" id="formatOriginal" name="format" value="original" checked>
+                        <label for="formatOriginal">Original</label>
+                        
+                        <input type="radio" id="formatJpg" name="format" value="jpg">
+                        <label for="formatJpg">JPG</label>
+                        
+                        <input type="radio" id="formatPng" name="format" value="png">
+                        <label for="formatPng">PNG</label>
+                        
+                        <input type="radio" id="formatWebp" name="format" value="webp">
+                        <label for="formatWebp">WebP</label>
+                    </div>
+                </div>
+
+                <button id="resizeBtn" class="resize-btn" disabled>Resize Image</button>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <h2>Resized Image</h2>
+                <div class="result-container">
+                    <img id="resultImage" src="" alt="Resized Image">
+                    <div class="result-info">
+                        <p>New Size: <span id="newSize">-</span></p>
+                        <p>New Dimensions: <span id="newDimensions">-</span></p>
+                        <p>Reduction: <span id="reduction">-</span></p>
+                        <a id="downloadBtn" class="download-btn" href="#" download>Download Resized Image</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>Resizing image...</p>
+        </div>
+
+        <footer>
+            <p>Image Resizer &copy; 2023 | Frontend: Netlify | Backend: Render</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
