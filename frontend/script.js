@@ -1,5 +1,5 @@
 // Backend URL - Update this with your Render backend URL
-const BACKEND_URL = 'https://your-backend-service.onrender.com';
+const BACKEND_URL = 'https://image-resizer-xfs7.onrender.com';
 
 document.addEventListener('DOMContentLoaded', function() {
     const uploadArea = document.getElementById('uploadArea');
